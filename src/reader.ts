@@ -159,4 +159,13 @@ export class GLTFReader {
 
     return savedSpace;
   }
+
+  removeAccessorsMinMax() {
+    if (this.gltf.accessors) {
+      for (const accessor of this.gltf.accessors) {
+        delete accessor.min;
+        delete accessor.max;
+      }
+    }
+  }
 }
