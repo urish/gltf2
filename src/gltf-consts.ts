@@ -1,3 +1,5 @@
+// tslint:disable:object-literal-sort-keys
+
 export const WebGLTypes = {
     BYTE: 5120,
     UNSIGNED_BYTE: 5121,
