@@ -31,7 +31,7 @@ export class GLTFReader {
       for (let i = 0; i < this.gltf.buffers.length; i++) {
         const bufferFileName = `${bufferFilePrefix}-${i}.bin`;
         fs.writeFileSync(bufferFileName, this.bufferData[i]);
-        this.gltf.buffers[i].uri = path.basename(file, bufferFileName);
+        this.gltf.buffers[i].uri = path.basename(bufferFileName);
       }
     }
 
