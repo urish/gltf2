@@ -1,0 +1,24 @@
+{
+  "name": "gltf2",
+  "version": "0.1.0",
+  "repository": "git@github.com:urish/gltf2.git",
+  "author": "Uri Shaked <uri@codemagic.co.il>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "lint": "tslint src/**/*.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "@types/node": "^8.5.2"
+  }
+}
