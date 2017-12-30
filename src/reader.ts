@@ -15,7 +15,7 @@ export class GLTFReader {
       const dir = path.dirname(file);
       for (const bufferInfo of this.gltf.buffers) {
         if (bufferInfo.uri) {
-          this.bufferData.push(new Uint8Array(fs.readFileSync(bufferInfo.uri)));
+          this.bufferData.push(new Uint8Array(fs.readFileSync(path.resolve(dir, bufferInfo.uri))));
         } else {
           throw new Error('Missing buffer info');
         }
@@ -31,7 +31,7 @@ export class GLTFReader {
       for (let i = 0; i < this.gltf.buffers.length; i++) {
         const bufferFileName = `${bufferFilePrefix}-${i}.bin`;
         fs.writeFileSync(bufferFileName, this.bufferData[i]);
-        this.gltf.buffers[i].uri = bufferFileName;
+        this.gltf.buffers[i].uri = path.basename(file, bufferFileName);
       }
     }
 
